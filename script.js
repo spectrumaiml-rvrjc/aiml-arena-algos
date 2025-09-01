@@ -3,7 +3,7 @@
 // =========================
 
 // Configurable duration (in seconds)
-const GAME_DURATION = 20; // 3 mins for all pages
+const GAME_DURATION = 180; // 3 mins for all pages
 
 let timeLeft = GAME_DURATION;
 let gameActive = false;

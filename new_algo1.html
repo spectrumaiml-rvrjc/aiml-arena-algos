@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>01 - Algorithm Challenge</title>
+  <title>Problem - Algorithm Challenge</title>
   <link rel="stylesheet" href="./css/new_styles.css" />
 </head>
 
 <body>
   <div class="head-cont">
-    <h2>Algo-02</h2>
-    <p id="timer">02:00</p>
+    <h2>AIML Arena - Fill the Algo</h2>
+    <p id="timer">03:00</p>
     <p id="result"></p>
   </div>
 
@@ -35,17 +35,17 @@
         <p><span class="keyword">11.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if alt < dist[v]:</p>
         <p><span class="keyword">12.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist[v] = alt</p>
         <p><span class="keyword">13.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent[v] = u</p>
-        <p><span class="keyword">13.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q.insert((<span class="dropzone" data-answer="AA"></span>, v)) <span class="comment">// Blank 1</span></p>
+        <p><span class="keyword">13.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q.insert((<span class="dropzone" data-answer="AA"></span>, v)) </p>
         <p><span class="keyword">15.</span> &nbsp;&nbsp;&nbsp;return dist, parent</p>
 
         <br />
 
         <p><span class="keyword">16.</span> function shortestPath(graph, src, tgt):</p>
         <p><span class="keyword">17.</span>&nbsp;&nbsp;&nbsp; dist, parent = Dijkstra(graph, src)</p>
-        <p><span class="keyword">18.</span>&nbsp;&nbsp;&nbsp; if dist[tgt] == infinity: return <span class="dropzone" data-answer="BB"></span> <span class="comment">// Blank 2</span></p>
+        <p><span class="keyword">18.</span>&nbsp;&nbsp;&nbsp; if dist[tgt] == infinity: return <span class="dropzone" data-answer="BB"></span> </p>
         <p><span class="keyword">19.</span>&nbsp;&nbsp;&nbsp; path, cur = [], tgt</p>
         <p><span class="keyword">20.</span>&nbsp;&nbsp;&nbsp; while cur != src:</p>
-        <p><span class="keyword">21.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if cur not in parent: return <span class="dropzone" data-answer="BB"></span> <span class="comment">// Blank 3</span></p>
+        <p><span class="keyword">21.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if cur not in parent: return <span class="dropzone" data-answer="BB"></span></p>
         <p><span class="keyword">22.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path.append(cur)</p>
         <p><span class="keyword">23.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cur = parent[cur]</p>
         <p><span class="keyword">24.</span>&nbsp;&nbsp;&nbsp; path.append(src)</p>
@@ -56,9 +56,9 @@
         <p><span class="keyword">26.</span> function test():</p>
         <p><span class="keyword">27.</span>&nbsp;&nbsp;&nbsp; g = {'A':[('B',1),('C',4)], 'B':[('C',2),('D',5)], 'C':[('D',1)], 'D':[]}</p>
         <p><span class="keyword">28.</span>&nbsp;&nbsp;&nbsp; p = shortestPath(g,'A','D')</p>
-        <p><span class="keyword">29.</span>&nbsp;&nbsp;&nbsp; print("Path:", <span class="dropzone" data-answer="DD"></span>) <span class="comment">// Blank 4</span></p>
+        <p><span class="keyword">29.</span>&nbsp;&nbsp;&nbsp; print("Path:", <span class="dropzone" data-answer="DD"></span>)</p>
         <p><span class="keyword">30.</span>&nbsp;&nbsp;&nbsp; dist,_ = Dijkstra(g,'A')</p>
-        <p><span class="keyword">31.</span>&nbsp;&nbsp;&nbsp; print("Length:", <span class="dropzone" data-answer="EE"></span>) <span class="comment">// Blank 5</span></p>
+        <p><span class="keyword">31.</span>&nbsp;&nbsp;&nbsp; print("Length:", <span class="dropzone" data-answer="EE"></span>)</p>
 
         <br />
 
