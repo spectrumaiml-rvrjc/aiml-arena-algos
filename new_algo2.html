@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 - Algorithm Challenge</title>
+  <link rel="stylesheet" href="./css/new_styles.css" />
+</head>
+
+<body>
+  <div class="head-cont">
+    <h2>Algo-03</h2>
+    <p id="timer">02:00</p>
+    <p id="result"></p>
+  </div>
+
+  <div class="main-container">
+    <div class="scroll-container algo-container" id="algo">
+      <div class="editor-header">
+        <div class="tab"><span class="dot"></span>Algorithm</div>
+      </div>
+      <!-- ALGO_DIV_STARTS -->
+      <div class="algo">
+        <p><span class="keyword">1. </span> FUNCTION BellmanFord(Graph, Source):</p>
+        <p><span class="keyword">2. </span> &nbsp;&nbsp;&nbsp;FOR each vertex v IN Graph:</p>
+        <p><span class="keyword">3. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distance[v] ← ∞</p>
+        <p><span class="keyword">4. </span> &nbsp;&nbsp;&nbsp;Distance[Source] ← 0</p>
+        <p><span class="keyword">5. </span> &nbsp;&nbsp;&nbsp;Parent ← empty map</p>
+        <p><span class="keyword">6. </span></p>
+        <p><span class="keyword">7. </span> &nbsp;&nbsp;&nbsp;FOR i FROM 1 TO |V|-1:</p>
+        <p><span class="keyword">8. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR each (u,v,w) IN Edges(Graph):</p>
+        <p><span class="keyword">9. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF Distance[u] + w < Distance[v]:</p>
+        <p><span class="keyword">10.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distance[v] ← Distance[u] + w</p>
+        <p><span class="keyword">11.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent[v] ← u</p>
+        <p><span class="keyword">12.</span></p>
+        <p><span class="keyword">13.</span>&nbsp;&nbsp;&nbsp;FOR each (u,v,w) IN <span class="dropzone" data-answer="AAA"></span>: <span class="comment">// Blank 1</span></p>
+        <p><span class="keyword">14.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF Distance[u] + w < Distance[v]:</p>
+        <p><span class="keyword">15.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN <span class="dropzone" data-answer="CCC"></span> <span class="comment">// Blank 2</span></p>
+        <p><span class="keyword">16.</span></p>
+        <p><span class="keyword">17.</span>&nbsp;&nbsp;&nbsp;RETURN (Distance, Parent)</p>
+
+        <br />
+
+        <p><span class="keyword">19.</span> FUNCTION ShortestPath(Graph, Source, Target):</p>
+        <p><span class="keyword">20.</span>&nbsp;&nbsp;&nbsp; (Distance, Parent) ← BellmanFord(Graph, Source)</p>
+        <p><span class="keyword">21.</span>&nbsp;&nbsp;&nbsp; IF Distance = <span class="dropzone" data-answer="CCC"></span>: <span class="comment">// Blank 3</span></p>
+        <p><span class="keyword">22.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN Distance</p>
+        <p><span class="keyword">23.</span>&nbsp;&nbsp;&nbsp; IF Distance[Target] = ∞ THEN RETURN Empty List</p>
+        <p><span class="keyword">24.</span>&nbsp;&nbsp;&nbsp; Path ← empty list</p>
+        <p><span class="keyword">25.</span>&nbsp;&nbsp;&nbsp; Current ← Target</p>
+        <p><span class="keyword">26.</span>&nbsp;&nbsp;&nbsp; WHILE Current ≠ Source:</p>
+        <p><span class="keyword">27.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF Current NOT IN Parent THEN RETURN Empty List</p>
+        <p><span class="keyword">28.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; APPEND Current TO Path</p>
+        <p><span class="keyword">29.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Current ← Parent[Current]</p>
+        <p><span class="keyword">30.</span>&nbsp;&nbsp;&nbsp; APPEND Source TO Path</p>
+        <p><span class="keyword">31.</span>&nbsp;&nbsp;&nbsp; RETURN Reverse(Path)</p>
+
+        <br />
+
+        <p><span class="keyword">33.</span> FUNCTION Test():</p>
+        <p><span class="keyword">34.</span>&nbsp;&nbsp;&nbsp;Graph ← { A:[(B,4),(C,5)], B:[(C,-3)], C:[(D,2)], D:[] }</p>
+        <p><span class="keyword">35.</span>&nbsp;&nbsp;&nbsp;P ← ShortestPath(Graph, A, D)</p>
+        <p><span class="keyword">36.</span>&nbsp;&nbsp;&nbsp;PRINT "Path:", <span class="dropzone" data-answer="DDD"></span> <span class="comment">// Blank 4</span></p>
+        <p><span class="keyword">37.</span>&nbsp;&nbsp;&nbsp;(Distance, _) ← BellmanFord(Graph, A)</p>
+        <p><span class="keyword">38.</span>&nbsp;&nbsp;&nbsp;PRINT "Length:", <span class="dropzone" data-answer="EEE"></span> <span class="comment">// Blank 5</span></p>
+      </div>
+      <!-- ALGO_DIV_ENDS -->
+    </div>
+
+    <!-- BLOCKS_DIV_STARTS -->
+    <div class="scroll-container block-container" id="blocks">
+      <div class="blocks-header">Code Blocks</div>
+      <div class="block" draggable="true" data-value="Edges(Graph)" data-key="AAA">Edges(Graph)</div>
+      <div class="block" draggable="true" data-value="'Negative Cycle Detected'" data-key="CCC">'Negative Cycle Detected'</div>
+      <div class="block" draggable="true" data-value="'Negative Cycle Detected'" data-key="CCC">'Negative Cycle Detected'</div>
+      <div class="block" draggable="true" data-value="P" data-key="DDD">P</div>
+      <div class="block" draggable="true" data-value="Distance['D']" data-key="EEE">Distance['D']</div>
+    </div>
+    <!-- BLOCKS_DIV_ENDS -->
+  </div>
+
+  <div>
+    <button id="start-btn" onclick="startGame()">Start Solving</button>
+  </div>
+
+  <div class="status-bar">
+    <span>&copy; Algorithm Challenge v2.0.0</span>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

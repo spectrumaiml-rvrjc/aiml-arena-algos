@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeCraft - Algorithms Round</title>
+  <!-- <link rel="stylesheet" href="css/new_styles.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/indexStyles.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="vscode-header">
+    <span class="title">AIML Arena</span>
+  </div>
+
+  <!-- Main -->
+  <div id="first-sec">
+    <div class="container" role="main" aria-labelledby="pageTitle">
+      <div class="logo">
+        <h1 id="pageTitle">AIML Arena</h1>
+        <p class="subtle">Round&nbsp;-&nbsp;3</p>
+      </div>
+
+      <h2 class="head">Fill the Algo</h2>
+
+      <button class="rules" id="rulesClick" aria-expanded="true" aria-controls="RulesListID">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        Rules
+      </button>
+      <ul class="rulesList" id="RulesListID">
+        <li>This round is based on Algorithms. Use the unique code provided by the organizers.</li>
+        <li>Enter your code below to access your algorithm set.</li>
+        <li>You will have <strong>3 minutes</strong> to solve the given algorithm.</li>
+      </ul>
+
+      <!-- OTP -->
+      <section class="otp-wrap" aria-labelledby="otpTitle">
+        <h3 class="otp-title" id="otpTitle">Enter Your Code</h3>
+        <p class="otp-hint">6 characters</p>
+        <div class="otp-inputs" id="otpInputs">
+          <input aria-label="Code character 1" inputmode="latin-prose" autocomplete="one-time-code" type="text"
+            maxlength="1" class="otp-input">
+          <input aria-label="Code character 2" inputmode="latin-prose" autocomplete="one-time-code" type="text"
+            maxlength="1" class="otp-input">
+          <input aria-label="Code character 3" inputmode="latin-prose" autocomplete="one-time-code" type="text"
+            maxlength="1" class="otp-input">
+          <input aria-label="Code character 4" inputmode="latin-prose" autocomplete="one-time-code" type="text"
+            maxlength="1" class="otp-input">
+          <input aria-label="Code character 5" inputmode="latin-prose" autocomplete="one-time-code" type="text"
+            maxlength="1" class="otp-input">
+          <input aria-label="Code character 6" inputmode="latin-prose" autocomplete="one-time-code" type="text"
+            maxlength="1" class="otp-input">
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" id="submitBtn">Submit</button>
+          <button class="btn btn-ghost" id="clearBtn" type="button">Clear</button>
+        </div>
+        <p class="error" id="errorBox" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="status-bar">
+    <div class="status-left">
+      <div class="status-item">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Algorithms</span>
+      </div>
+    </div>
+    <div class="status-right">
+      <div class="status-item">
+        <span>Developed by Nihar GNV</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    // Toggle Rules (light)
+    const rulesBtn = document.getElementById('rulesClick');
+    const rulesList = document.getElementById('RulesListID');
+    rulesBtn.addEventListener('click', () => {
+      const hidden = rulesList.style.display === 'none';
+      rulesList.style.display = hidden ? 'block' : 'none';
+      rulesBtn.setAttribute('aria-expanded', hidden ? 'true' : 'false');
+    });
+
+    // OTP UX: advance, backspace, paste, validation (case-insensitive)
+    const inputs = Array.from(document.querySelectorAll('.otp-input'));
+    const errorBox = document.getElementById('errorBox');
+    const submitBtn = document.getElementById('submitBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    // Map codes to pages (edit as needed)
+    const codeMap = {
+      "SP12CD": "new_algo1.html",
+      "SP34ZT": "new_algo2.html",
+      "SP56RS": "new_algo3.html",
+      "SP78NO": "new_algo2.html",
+      "SP90WX": "new_algo1.html",
+      "SPXX42": "new_algo3.html",
+      "EXAMPL": "algot.html"
+    };
+
+    function sanitizeChar(ch) {
+      return ch.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    inputs.forEach((input, idx) => {
+      input.addEventListener('input', (e) => {
+        let v = sanitizeChar(e.target.value);
+        if (!v) { e.target.value = ''; return; }
+        e.target.value = v.toUpperCase();
+
+        // move forward if filled
+        if (v && idx < inputs.length - 1) inputs[idx + 1].focus();
+        errorBox.textContent = '';
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && idx > 0) {
+          inputs[idx - 1].focus();
+          inputs[idx - 1].value = '';
+          e.preventDefault();
+        }
+        if (e.key === 'ArrowLeft' && idx > 0) inputs[idx - 1].focus();
+        if (e.key === 'ArrowRight' && idx < inputs.length - 1) inputs[idx + 1].focus();
+        if (e.key === 'Enter') { submitCode(); }
+      });
+
+      // Paste support
+      input.addEventListener('paste', (e) => {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (!paste) return;
+        e.preventDefault();
+        const chars = paste.replace(/[^a-zA-Z0-9]/g, '').slice(0, inputs.length);
+        chars.split('').forEach((ch, i) => {
+          if (idx + i < inputs.length) {
+            inputs[idx + i].value = ch.toUpperCase();
+          }
+        });
+        const nextIndex = Math.min(idx + chars.length, inputs.length - 1);
+        inputs[nextIndex].focus();
+      });
+    });
+
+    function readCode() {
+      return inputs.map(i => i.value).join('').toUpperCase();
+    }
+
+    function submitCode() {
+      const code = readCode();
+      if (code.length < inputs.length) {
+        errorBox.textContent = 'Please enter all 6 characters.';
+        return;
+      }
+      const target = codeMap[code];
+      if (target) {
+        window.open(target, '_blank', 'noopener,noreferrer');
+      } else {
+        errorBox.textContent = 'Invalid code. Please check and try again.';
+      }
+    }
+
+    submitBtn.addEventListener('click', submitCode);
+    clearBtn.addEventListener('click', () => {
+      inputs.forEach(i => i.value = '');
+      inputs[0].focus();
+      errorBox.textContent = '';
+    });
+
+    // Autofocus first box
+    inputs[0].focus();
+  </script>
+</body>
+
+</html>

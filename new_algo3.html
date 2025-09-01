@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>03 - Algorithm Challenge</title>
+  <link rel="stylesheet" href="./css/new_styles.css" />
+</head>
+
+<body>
+  <div class="head-cont">
+    <h2>Algo-04</h2>
+    <p id="timer">02:00</p>
+    <p id="result"></p>
+  </div>
+
+  <div class="main-container">
+    <div class="scroll-container algo-container" id="algo">
+      <div class="editor-header">
+        <div class="tab"><span class="dot"></span>Algorithm</div>
+      </div>
+      <!-- ALGO_DIV_STARTS -->
+      <div class="algo">
+        <p><span class="keyword">1. </span> FUNCTION AStar(Graph, start, goal, h):</p>
+        <p><span class="keyword">2. </span>&nbsp;&nbsp;&nbsp; OPEN ← priority queue</p>
+        <p><span class="keyword">3. </span>&nbsp;&nbsp;&nbsp; gScore ← map with default ∞</p>
+        <p><span class="keyword">4. </span>&nbsp;&nbsp;&nbsp; fScore ← map with default ∞</p>
+        <p><span class="keyword">5. </span>&nbsp;&nbsp;&nbsp; Parent ← empty map</p>
+        <p><span class="keyword">6. </span></p>
+        <p><span class="keyword">7. </span>&nbsp;&nbsp;&nbsp; gScore[start] ← 0</p>
+        <p><span class="keyword">8. </span>&nbsp;&nbsp;&nbsp; fScore[start] ← h(start)</p>
+        <p><span class="keyword">9. </span>&nbsp;&nbsp;&nbsp; INSERT (fScore[start], start) INTO OPEN</p>
+        <p><span class="keyword">10.</span></p>
+        <p><span class="keyword">11.</span>&nbsp;&nbsp;&nbsp; WHILE OPEN is not empty:</p>
+        <p><span class="keyword">12.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (f, current) ← Extract-Min(OPEN)</p>
+        <p><span class="keyword">13.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF current = goal:</p>
+        <p><span class="keyword">14.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN ReconstructPath(Parent, current)</p>
+        <p><span class="keyword">15.</span></p>
+        <p><span class="keyword">16.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FOR each (neighbor, weight) IN Neighbors(current):</p>
+        <p><span class="keyword">17.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tentative_g ← gScore[current] + weight</p>
+        <p><span class="keyword">18.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF tentative_g < gScore[neighbor]:</p>
+        <p><span class="keyword">19.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parent[neighbor] ← <span class="dropzone" data-answer="aa"></span> <span class="comment">// Blank 1</span></p>
+        <p><span class="keyword">20.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gScore[neighbor] ← tentative_g</p>
+        <p><span class="keyword">21.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fScore[neighbor] ← tentative_g + <span class="dropzone" data-answer="bb"></span> <span class="comment">// Blank 2</span></p>
+        <p><span class="keyword">22.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INSERT (fScore[neighbor], neighbor) INTO OPEN</p>
+        <p><span class="keyword">23.</span></p>
+        <p><span class="keyword">24.</span>&nbsp;&nbsp;&nbsp; RETURN <span class="dropzone" data-answer="cc"></span> <span class="comment">// Blank 3</span></p>
+        <p><span class="keyword">25.</span></p>
+        <p><span class="keyword">26.</span> FUNCTION ReconstructPath(Parent, current):</p>
+        <p><span class="keyword">27.</span>&nbsp;&nbsp;&nbsp; Path ← empty list</p>
+        <p><span class="keyword">28.</span>&nbsp;&nbsp;&nbsp; WHILE <span class="dropzone" data-answer="dd"></span>: <span class="comment">// Blank 4</span></p>
+        <p><span class="keyword">29.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; APPEND current TO Path</p>
+        <p><span class="keyword">30.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; current ← Parent[current]</p>
+        <p><span class="keyword">31.</span>&nbsp;&nbsp;&nbsp; APPEND current TO Path</p>
+        <p><span class="keyword">32.</span>&nbsp;&nbsp;&nbsp; RETURN <span class="dropzone" data-answer="ee"></span> <span class="comment">// Blank 5</span></p>
+        <p><span class="keyword">33.</span></p>
+      </div>
+      <!-- ALGO_DIV_ENDS -->
+    </div>
+
+    <!-- BLOCKS_DIV_STARTS -->
+    <div class="scroll-container block-container" id="blocks">
+      <div class="blocks-header">Code Blocks</div>
+      <div class="block" draggable="true" data-value="current" data-key="aa">current</div>
+      <div class="block" draggable="true" data-value="h(neighbor)" data-key="bb">h(neighbor)</div>
+      <div class="block" draggable="true" data-value="Empty List or None" data-key="cc">Empty List or None</div>
+      <div class="block" draggable="true" data-value="current IN Parent" data-key="dd">current IN Parent</div>
+      <div class="block" draggable="true" data-value="Reverse(Path)" data-key="ee">Reverse(Path)</div>
+    </div>
+    <!-- BLOCKS_DIV_ENDS -->
+  </div>
+
+  <div>
+    <button id="start-btn" onclick="startGame()">Start Solving</button>
+  </div>
+
+  <div class="status-bar">
+    <span>&copy; Algorithm Challenge v2.0.0</span>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

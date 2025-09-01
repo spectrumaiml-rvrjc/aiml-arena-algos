@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 - Algorithm Challenge</title>
+  <link rel="stylesheet" href="./css/new_styles.css" />
+</head>
+
+<body>
+  <div class="head-cont">
+    <h2>Algo-02</h2>
+    <p id="timer">02:00</p>
+    <p id="result"></p>
+  </div>
+
+  <div class="main-container">
+    <div class="scroll-container algo-container" id="algo">
+      <div class="editor-header">
+        <div class="tab"><span class="dot"></span>Algorithm</div>
+      </div>
+      <!-- ALGO_DIV_STARTS -->
+      <div class="algo">
+        <p><span class="keyword">1. </span> function Dijkstra(graph, src):</p>
+        <p><span class="keyword">2. </span> &nbsp;&nbsp;&nbsp;dist = {v: infinity for v in graph}</p>
+        <p><span class="keyword">3. </span> &nbsp;&nbsp;&nbsp;dist[src] = 0</p>
+        <p><span class="keyword">4. </span> &nbsp;&nbsp;&nbsp;parent = { }</p>
+        <p><span class="keyword">5. </span> &nbsp;&nbsp;&nbsp;Q = priorityQueue()</p>
+        <p><span class="keyword">6. </span> &nbsp;&nbsp;&nbsp;Q.insert((0, src))</p>
+        <p><span class="keyword">7. </span> &nbsp;&nbsp;&nbsp;while not isEmpty(Q):</p>
+        <p><span class="keyword">8. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d,u) = Q.extractMin()</p>
+        <p><span class="keyword">9. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (v,w) in graph[u]:</p>
+        <p><span class="keyword">10.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt = dist[u] + w</p>
+        <p><span class="keyword">11.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if alt < dist[v]:</p>
+        <p><span class="keyword">12.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist[v] = alt</p>
+        <p><span class="keyword">13.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent[v] = u</p>
+        <p><span class="keyword">13.</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q.insert((<span class="dropzone" data-answer="AA"></span>, v)) <span class="comment">// Blank 1</span></p>
+        <p><span class="keyword">15.</span> &nbsp;&nbsp;&nbsp;return dist, parent</p>
+
+        <br />
+
+        <p><span class="keyword">16.</span> function shortestPath(graph, src, tgt):</p>
+        <p><span class="keyword">17.</span>&nbsp;&nbsp;&nbsp; dist, parent = Dijkstra(graph, src)</p>
+        <p><span class="keyword">18.</span>&nbsp;&nbsp;&nbsp; if dist[tgt] == infinity: return <span class="dropzone" data-answer="BB"></span> <span class="comment">// Blank 2</span></p>
+        <p><span class="keyword">19.</span>&nbsp;&nbsp;&nbsp; path, cur = [], tgt</p>
+        <p><span class="keyword">20.</span>&nbsp;&nbsp;&nbsp; while cur != src:</p>
+        <p><span class="keyword">21.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if cur not in parent: return <span class="dropzone" data-answer="BB"></span> <span class="comment">// Blank 3</span></p>
+        <p><span class="keyword">22.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path.append(cur)</p>
+        <p><span class="keyword">23.</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cur = parent[cur]</p>
+        <p><span class="keyword">24.</span>&nbsp;&nbsp;&nbsp; path.append(src)</p>
+        <p><span class="keyword">25.</span>&nbsp;&nbsp;&nbsp; return list(reversed(path))</p>
+
+        <br />
+
+        <p><span class="keyword">26.</span> function test():</p>
+        <p><span class="keyword">27.</span>&nbsp;&nbsp;&nbsp; g = {'A':[('B',1),('C',4)], 'B':[('C',2),('D',5)], 'C':[('D',1)], 'D':[]}</p>
+        <p><span class="keyword">28.</span>&nbsp;&nbsp;&nbsp; p = shortestPath(g,'A','D')</p>
+        <p><span class="keyword">29.</span>&nbsp;&nbsp;&nbsp; print("Path:", <span class="dropzone" data-answer="DD"></span>) <span class="comment">// Blank 4</span></p>
+        <p><span class="keyword">30.</span>&nbsp;&nbsp;&nbsp; dist,_ = Dijkstra(g,'A')</p>
+        <p><span class="keyword">31.</span>&nbsp;&nbsp;&nbsp; print("Length:", <span class="dropzone" data-answer="EE"></span>) <span class="comment">// Blank 5</span></p>
+
+        <br />
+
+        <p><span class="keyword">32.</span> function isEmpty(Q):</p>
+        <p><span class="keyword">33.</span>&nbsp;&nbsp;&nbsp; return len(Q) == 0</p>
+      </div>
+      <!-- ALGO_DIV_ENDS -->
+    </div>
+
+    <!-- BLOCKS_DIV_STARTS -->
+    <div class="scroll-container block-container" id="blocks">
+      <div class="blocks-header">Code Blocks</div>
+      <div class="block" draggable="true" data-value="alt or dist[v]" data-key="AA">alt or dist[v]</div>
+      <div class="block" draggable="true" data-value="[ ] or None" data-key="BB">[ ] or None</div>
+      <div class="block" draggable="true" data-value="[ ] or None" data-key="BB">[ ] or None</div>
+      <div class="block" draggable="true" data-value="[ ] or None" data-key="BB">[ ] or None</div>
+      <div class="block" draggable="true" data-value="[ 0 ] or {0}" data-key="B">[ ] or [ 0 ] or {0}</div>
+      
+      <div class="block" draggable="true" data-value="p" data-key="DD">p</div>
+      <div class="block" draggable="true" data-value="dist['D']" data-key="EE">dist['D']</div>
+    </div>
+    <!-- BLOCKS_DIV_ENDS -->
+  </div>
+
+  <div>
+    <button id="start-btn" onclick="startGame()">Start Solving</button>
+  </div>
+
+  <div class="status-bar">
+    <span>&copy; Algorithm Challenge v2.0.0</span>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

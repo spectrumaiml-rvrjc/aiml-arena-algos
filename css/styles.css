@@ -1,0 +1,313 @@
+:root {
+  /* Material Oceanic Theme Colors */
+  --background: #0f111a;
+  --editor-background: #1a1c25;
+  --sidebar-background: #0f111a;
+  --text-color: #a6accd;
+  --keyword-color: #c792ea;
+  --function-color: #82aaff;
+  --variable-color: #f07178;
+  --number-color: #f78c6c;
+  --comment-color: #546e7a;
+  --string-color: #c3e88d;
+  --border-color: #2b2d3a;
+  --active-line: #1f2233;
+  --selection: rgba(128, 203, 196, 0.2);
+  --accent: #80cbc4;
+  --error: #ff5370;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "JetBrains Mono", "Menlo", "Monaco", "Courier New", monospace;
+  background-color: var(--background);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 97vh;
+  padding: 20px;
+}
+
+h2 {
+  color: var(--text-color);
+  margin: 15px 0;
+  font-size: 28px;
+}
+
+.main-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+  height: 72vh;
+}
+
+.scroll-container {
+  overflow-y: auto;
+  border-radius: 4px;
+  flex: 1;
+  display: none;
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--editor-background);
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--editor-background);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 4px;
+}
+
+.algo-container {
+  flex: 2;
+  background-color: var(--editor-background);
+  border: 1px solid var(--border-color);
+  padding: 0;
+  position: relative;
+}
+
+.editor-header {
+  background-color: var(--sidebar-background);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.editor-header .tab {
+  padding: 5px 12px;
+  background-color: var(--editor-background);
+  border-radius: 4px 4px 0 0;
+  margin-right: 8px;
+}
+
+.editor-header .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  margin-right: 8px;
+}
+
+.line-numbers {
+  position: absolute;
+  left: 0;
+  top: 40px; /* Height of editor header */
+  width: 40px;
+  height: calc(100% - 40px);
+  background-color: var(--editor-background);
+  border-right: 1px solid var(--border-color);
+  padding-top: 10px;
+  text-align: right;
+  color: var(--comment-color);
+  user-select: none;
+}
+
+.line-number {
+  padding: 0 10px 0 0;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.algo {
+  text-align: left;
+  font-size: 18px;
+  padding: 10px 10px 10px 50px;
+  line-height: 28px;
+}
+
+.keyword {
+  color: var(--keyword-color);
+}
+
+.function {
+  color: var(--function-color);
+}
+
+.variable {
+  color: var(--variable-color);
+}
+
+.number {
+  color: var(--number-color);
+}
+
+.dropzone {
+  display: inline-block;
+  min-width: 80px; /* Minimum width */
+  max-width: 600px; /* Maximum width */
+  width: auto; /* Let width be determined by content */
+  height: 28px;
+  max-height: 50px;
+  border: 1px dashed var(--border-color);
+  margin: 0 5px;
+  vertical-align: middle;
+  background-color: rgba(128, 203, 196, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  color: transparent;
+  position: relative;
+  white-space: nowrap; /* Prevent wrapping of content */
+  overflow: hidden; /*In case content is too long */
+  text-overflow: ellipsis; /* Show ellipsis for overflow */
+}
+
+.dropzone.highlight {
+  background-color: var(--selection);
+  border-color: var(--accent);
+}
+
+.dropzone.filled {
+  border-style: solid;
+  border-color: var(--accent);
+  color: inherit;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; /* Let content determine width */
+}
+.block-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sidebar-background);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  gap: 10px;
+  display: none;
+}
+
+.blocks-header {
+  font-size: 16px;
+  color: var(--comment-color);
+  margin-bottom: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.block {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--selection);
+  color: var(--variable-color);
+  cursor: grab;
+  margin: 5px;
+  border-radius: 3px;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border-color);
+  user-select: none;
+}
+
+.block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.block:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+.block.used {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button {
+  background: var(--accent);
+  color: var(--background);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #91d7d0;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#result {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 20px;
+  height: 40px;
+  transition: all 0.5s ease-in-out;
+}
+
+#timer {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: var(--accent);
+  display: none;
+}
+
+.code-tooltip {
+  position: absolute;
+  background-color: var(--sidebar-background);
+  color: var(--text-color);
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border: 1px solid var(--border-color);
+}
+
+.status-bar {
+  background-color: var(--sidebar-background);
+  color: var(--comment-color);
+  font-size: 14px;
+  padding: 7px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+
+.head-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90vw;
+}
+
+
+p{
+  padding: 2px;
+  margin: 2px;
+}

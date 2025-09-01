@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03 - Algorithm Challenge</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="head-cont">
+      <h2>Algo-03</h2>
+      <p id="timer">02:00</p>
+      <p id="result"></p>
+    </div>
+
+    <div class="main-container">
+      <div class="scroll-container algo-container" id="algo">
+        <div class="editor-header">
+          <div class="tab"><span class="dot"></span>Algorithm</div>
+        </div>
+        <!-- ALGO_DIV_STARTS -->
+        <div class="algo">
+          <p>
+            <span class="keyword">Algorithm</span>
+            <span class="function">DeleteNode</span>(head, value)
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">1.</span> If head =
+            NULL, then
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="keyword"
+              >2.</span
+            >
+            return NULL
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">3.</span> Initialize
+            current &larr; head
+          </p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">4.</span> Repeat</p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="keyword"
+              >5.</span
+            >
+            If current.data = value, then
+          </p>
+          <!-- GAP-1 -->
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span
+              class="dropzone"
+              data-answer="If current.next = current, then"
+            ></span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span
+              class="dropzone"
+              data-answer="return NULL"
+            ></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 1</span>
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="keyword"
+              >6.</span
+            >
+            Else
+          </p>
+          <!-- GAP-2 -->
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="dropzone" data-answer="current.prev.next ← current.next"></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 2</span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="dropzone" data-answer="current.next.prev ← current.prev"></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 2</span>
+          </p>
+          <!-- GAP-3 -->
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span
+              class="dropzone"
+              data-answer="If current = head, then"
+            ></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 3</span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span
+              class="dropzone"
+              data-answer="head  ← head.next"
+            ></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 3</span>
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="keyword"
+              >7.</span
+            >
+            Delete current
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="keyword"
+              >8.</span
+            >
+            Return head
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">9.</span> current
+            &larr; current.next
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">10.</span> Until
+            current = head
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">11.</span> Return head
+            <span class="comment">(value not found)</span>
+          </p>
+          <p><span class="keyword">End Algorithm</span></p>
+        </div>
+        <!-- ALGO_DIV_STARTS -->
+      </div>
+      <!-- BLOCKS_DIV_STARTS -->
+      <div class="scroll-container block-container" id="blocks">
+        <div class="blocks-header">Code Blocks</div>
+        <div class="block" draggable="true" data-value="If current.next = current, then">If current.next = current, then</div>
+        <div class="block" draggable="true" data-value="Current ← current.next">Current ← current.next</div>
+        <div class="block" draggable="true" data-value="Current.next ← NULL">Current.next ← NULL</div>
+        <div class="block" draggable="true" data-value="If head.next = current, then">If head.next = current, then</div>
+        <div class="block" draggable="true" data-value="current.prev.next ← current.next">current.prev.next ← current.next</div>
+        <div class="block" draggable="true" data-value="return NULL">return NULL</div>
+        <div class="block" draggable="true" data-value="current.next.prev ← current.prev">current.next.prev ← current.prev</div>
+        <div class="block" draggable="true" data-value="current.prev.next ← head">current.prev.next ← head</div>
+        <div class="block" draggable="true" data-value="If current = head, then">If current = head, then</div>
+        <div class="block" draggable="true" data-value="current.next.prev ← current">current.next.prev ← current</div>
+        <div class="block" draggable="true" data-value="head  ← head.next">head  ← head.next</div>
+        <div class="block" draggable="true" data-value="current.next ← head">current.next ← head</div>
+
+      </div>
+      <!-- BLOCKS_DIV_ENDS -->
+    </div>
+
+    <div>
+      <button id="start-btn" onclick="startGame()">Start Challenge</button>
+    </div>
+
+    <div class="status-bar">
+      <span
+        >&copy; Algorithm Challenge v2.0.0
+      </span>
+    </div>
+
+    <script>
+      let timeLeft = 270;
+      let gameActive = false;
+      let timer;
+      const timerElement = document.getElementById("timer");
+      const algoContainer = document.getElementById("algo");
+      const blocksContainer = document.getElementById("blocks");
+      const resultElement = document.getElementById("result");
+      const startButton = document.getElementById("start-btn");
+
+      // Set up drag and drop
+      function setupDragAndDrop() {
+        const blocks = document.querySelectorAll(".block");
+        const dropzones = document.querySelectorAll(".dropzone");
+
+        blocks.forEach((block) => {
+          block.addEventListener("dragstart", dragStart);
+          block.addEventListener("dragend", dragEnd);
+        });
+
+        dropzones.forEach((dropzone) => {
+          dropzone.addEventListener("dragover", dragOver);
+          dropzone.addEventListener("dragenter", dragEnter);
+          dropzone.addEventListener("dragleave", dragLeave);
+          dropzone.addEventListener("drop", drop);
+
+          // For filled dropzones, allow clicking to clear
+          dropzone.addEventListener("click", function () {
+            if (this.classList.contains("filled") && gameActive) {
+              // Get the block value and find the original block
+              const blockValue = this.getAttribute("data-content");
+              const originalBlock = document.querySelector(
+                `.block[data-value="${blockValue}"]`
+              );
+
+              // Make the original block usable again
+              if (originalBlock) {
+                originalBlock.classList.remove("used");
+              }
+
+              // Clear the dropzone
+              this.textContent = "";
+              this.classList.remove("filled");
+              this.removeAttribute("data-content");
+            }
+          });
+        });
+      }
+
+      function dragStart() {
+        // Don't allow dragging if the block is already used or game isn't active
+        if (this.classList.contains("used") || !gameActive) {
+          event.preventDefault();
+          return false;
+        }
+
+        this.classList.add("dragging");
+        event.dataTransfer.setData(
+          "text/plain",
+          this.getAttribute("data-value")
+        );
+      }
+
+      function dragEnd() {
+        this.classList.remove("dragging");
+      }
+
+      function dragOver(e) {
+        // Allow drop even if the dropzone is already filled
+        if (gameActive) {
+          e.preventDefault();
+        }
+      }
+
+      function dragEnter(e) {
+        if (!this.classList.contains("filled") && gameActive) {
+          e.preventDefault();
+          this.classList.add("highlight");
+        }
+      }
+
+      function dragLeave() {
+        this.classList.remove("highlight");
+      }
+
+      function drop(e) {
+        e.preventDefault();
+
+        if (gameActive) {
+          this.classList.remove("highlight");
+
+          const blockValue = e.dataTransfer.getData("text/plain");
+
+          // If dropzone is already filled, release the previous block
+          if (this.classList.contains("filled")) {
+            const previousValue = this.getAttribute("data-content");
+            const previousBlock = document.querySelector(
+              `.block[data-value="${previousValue}"]`
+            );
+            if (previousBlock) {
+              previousBlock.classList.remove("used");
+            }
+          }
+
+          // Update with new block
+          this.textContent = blockValue;
+          this.classList.add("filled");
+          this.setAttribute("data-content", blockValue);
+
+          // Mark the new block as used
+          const block = document.querySelector(
+            `.block[data-value="${blockValue}"]`
+          );
+          if (block) {
+            block.classList.add("used");
+          }
+        }
+      }
+
+      function startGame() {
+        gameActive = true;
+        startButton.style.display = "none";
+        timerElement.style.display = "block";
+        algoContainer.style.display = "block";
+        blocksContainer.style.display = "flex";
+
+        setupDragAndDrop();
+        startTimer();
+      }
+
+      function startTimer() {
+        timer = setInterval(() => {
+          if (timeLeft > 0) {
+            timeLeft--;
+            let minutes = Math.floor(timeLeft / 60)
+              .toString()
+              .padStart(2, "0");
+            let seconds = (timeLeft % 60).toString().padStart(2, "0");
+            timerElement.innerText = `${minutes}:${seconds}`;
+          } else {
+            endGame();
+          }
+        }, 1000);
+      }
+
+      function endGame() {
+        clearInterval(timer);
+        gameActive = false;
+        timerElement.innerText = "Time's up!";
+
+        // Disable dragging
+        const blocks = document.querySelectorAll(".block");
+        blocks.forEach((block) => {
+          block.draggable = false;
+          block.style.cursor = "default";
+        });
+
+        // Check answers and display score
+        calculateScore();
+      }
+
+      function calculateScore() {
+        const dropzones = document.querySelectorAll(".dropzone");
+        let correctCount = 0;
+
+        dropzones.forEach((zone) => {
+          const userAnswer = zone.getAttribute("data-content");
+          const correctAnswer = zone.getAttribute("data-answer");
+
+          if (userAnswer === correctAnswer) {
+            correctCount++;
+            zone.style.borderColor = "var(--string-color)";
+            zone.style.backgroundColor = "rgba(195, 232, 141, 0.2)";
+          } else {
+            zone.style.borderColor = "var(--error)";
+            zone.style.backgroundColor = "rgba(255, 83, 112, 0.2)";
+          }
+        });
+
+        const totalDropzones = dropzones.length;
+        resultElement.textContent = `Score: ${correctCount*2}/${totalDropzones*2}`;
+
+        if (correctCount === totalDropzones) {
+          resultElement.style.color = "var(--string-color)";
+        } else {
+          resultElement.style.color = "var(--accent)";
+        }
+      }
+    </script>
+  </body>
+</html>

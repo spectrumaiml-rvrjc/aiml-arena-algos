@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodeCraft - Algorithms Round</title>
+    <link rel="stylesheet" href="css/new_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- VS Code Header -->
+    <div class="vscode-header">
+      <span class="title">CodeCraft Algorithms</span>
+    </div>
+    
+    <!-- Main Content with welcome screen -->
+    <div id="first-sec"> 
+      <div class="logo">
+        <h1>CodeCraft</h1>
+      </div>
+      
+      <h2>Round -3</h2>
+      <h1 class="head">Welcome to Algorithms Round</h1>
+      
+      <h4 class="rules" id="rulesClick">Rules </h4>
+      <ul class="rulesList" id="RulesListID">
+        <li>This round is based on Algorithms. Participants are requested to answer every set from the Question sets below.</li>
+        <li>Upon selecting a set, you will be redirected to a page with your algorithm.</li>
+        <li>You will have 3 mins to solve the given algorithm.</li>
+      </ul>
+      
+      <div class="ques-sets">
+        <h2>Question Sets</h2>
+        <div class="cards">
+          <div class="card card-odd" id="s1">
+            <h1 class="det_name">Set - 1</h1>
+            <button class="btn" onclick="redirectToQuestions(1)">Pick</button>
+          </div>
+          
+          <div class="card card-even" id="s2">
+            <h1 class="det_name">Set - 2</h1>
+            <button class="btn" onclick="redirectToQuestions(2)">Pick</button>
+          </div>
+          
+          <div class="card card-odd" id="s3">
+            <h1 class="det_name">Set - 3</h1>
+            <button class="btn" onclick="redirectToQuestions(3)">Pick</button>
+          </div>
+          
+          <div class="card card-even" id="s4">
+            <h1 class="det_name">Set - 4</h1>
+            <button class="btn" onclick="redirectToQuestions(4)">Pick</button>
+          </div>
+          
+        </div>
+        
+        <div class="cards">
+          
+          <div class="card card-even" id="s5">
+            <h1 class="det_name">Set - 5</h1>
+            <button class="btn" onclick="redirectToQuestions(5)">Pick</button>
+          </div>
+          
+          <div class="card card-odd" id="st">
+            <h1 class="det_name">Example Set</h1>
+            <button class="btn" onclick="redirectToQuestions('t')">Pick</button>
+          </div>
+          
+          </div>
+          
+         
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div class="status-left">
+        <div class="status-item">
+          <i class="fas fa-code"></i>
+          <span>CodeCraft Algorithms</span>
+        </div>
+      </div>
+      <div class="status-right">
+        <div class="status-item">
+          <span>Developed by Nihar GNV</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- JavaScript for redirection -->
+    <script>
+      document.getElementById('rulesClick').addEventListener('click', function() {
+        const rulesList = document.getElementById('RulesListID');
+        if (rulesList.style.display === 'none' || rulesList.style.display === '') {
+          rulesList.style.display = 'block';
+        } else {
+          rulesList.style.display = 'none';
+        }
+      });
+      
+      // Function to redirect to questions page
+      function redirectToQuestions(setNumber) {
+        // Hide the current card that was clicked
+        document.getElementById('s' + setNumber).style.display = 'none';
+        
+        let url = `./algo${setNumber}.html`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    </script>
+  </body>
+</html>

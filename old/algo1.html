@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 - Algorithm Challenge</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <div class="head-cont">
+    <h2>Algo-01</h2>
+    <p id="timer">02:00</p>
+    <p id="result"></p>
+  </div>
+
+  <div class="main-container">
+    <div class="scroll-container algo-container" id="algo">
+      <div class="editor-header">
+        <div class="tab"><span class="dot"></span>Algorithm</div>
+      </div>
+      <!-- ALGO_DIV_STARTS -->
+      <div class="algo">
+        <p>
+          <span class="keyword">Algorithm</span>
+          <span class="function">Sort</span>(list, low, high)
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">1.</span> If low &lt;
+          high, then
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">2.</span> mid &larr;
+          Divider(list, low, high)
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="dropzone" data-answer="A"></span>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 1</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="dropzone" data-answer="B"></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 2</span>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">3.</span> Else</p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">4.</span> Return list
+        </p>
+        <p><span class="keyword">End Algorithm</span></p>
+
+        <br />
+
+        <p>
+          <span class="keyword">Algorithm</span>
+          <span class="function">Divider</span>(list, low, high)
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">1.</span> Set mid
+          &larr; list[low]
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">2.</span> Initialize
+          left &larr; low and right &larr; high
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="dropzone" data-answer="C"></span>
+
+          <span class="dropzone" data-answer="D"></span>
+
+          <span class="dropzone" data-answer="D"></span>
+
+          <span class="dropzone" data-answer="If left < right, swap list[left] and list[right]   "></span>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Gap 3</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">3.</span> Return left
+        </p>
+        <p><span class="keyword">End Algorithm</span></p>
+      </div>
+      <!-- ALGO_DIV_STARTS -->
+    </div>
+    <!-- BLOCKS_DIV_STARTS -->
+    <div class="scroll-container block-container" id="blocks">
+      <div class="blocks-header">Code Blocks</div>
+      <div class="block" draggable="true" data-value="While array[i] = array[j], do" data-key="A">
+        While array[i] = array[j], do
+      </div>
+
+      <div class="block" draggable="true" data-value="Data 2" data-key="B">
+        data 2
+      </div>
+
+      <div class="block" draggable="true" data-value="Data 3" data-key="C">
+        data 3
+      </div>
+
+      <div class="block" draggable="true" data-value="Data 4" data-key="D">
+        Data 4
+      </div>
+
+      <div class="block" draggable="true" data-value="Data 5" data-key="E">
+        Data 5
+      </div>
+
+
+    </div>
+    <!-- BLOCKS_DIV_ENDS -->
+  </div>
+
+  <div>
+    <button id="start-btn" onclick="startGame()">Start Challenge</button>
+  </div>
+
+
+  <div class="status-bar">
+    <span>&copy; Algorithm Challenge v2.0.0
+    </span>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
